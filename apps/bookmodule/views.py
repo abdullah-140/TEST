@@ -27,3 +27,17 @@ def getBook(request, bookid):
         
         
     return render(request, 'bookmodule/book.html', {'book_num': bookid})
+
+
+def getTags(request):
+        
+    return render(request, 'bookmodule/tags.html')
+
+def getContactus(request):
+        
+    return render(request, 'bookmodule/contactus.html')
+
+
+def getAboutus(request):
+        
+    return render(request, 'bookmodule/aboutus.html')

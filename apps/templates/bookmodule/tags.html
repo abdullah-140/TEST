@@ -1,0 +1,37 @@
+{% extends "layouts/base.html" %}
+
+{% block stylesheets %}
+<style>
+    table, th, td{
+        border: 1px solid black;
+        border-collapse: collapse;
+    }      
+    
+    th, td{
+        padding: 8px;
+    }     
+</style>
+{% endblock stylesheets %}
+
+        
+
+{% block title %} New tags {% endblock %}
+
+{% block content %} 
+
+<form method="post">
+    {% csrf_token %} <!-- to protect the data of the form from attackers -->
+    <label>Keywords:</label>
+    <input type="text" name="keyword" placeholder="enter a keyword"/>
+    <br/> 
+
+    <label>Search in:</label>
+    <input type="checkbox" name="option1"/><label>Title</label>
+    <input type="checkbox" name="option2"/><label>Author</label>
+    <br/>
+   
+    <button type="submit" >Search</button>
+   </form>
+   
+
+{% endblock %}
