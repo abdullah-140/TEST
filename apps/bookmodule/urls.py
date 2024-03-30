@@ -21,9 +21,10 @@ from . import views
 urlpatterns = [
     path('', views.index),
     path('books/', views.getBooks),
-    path('books/<int:bookid>', views.getBook),
+    path('book/<int:bId>', views.book),
     path('tags/', views.getTags),
     path('contactus/', views.getContactus),
     path('aboutus/', views.getAboutus),
     
 ]
+

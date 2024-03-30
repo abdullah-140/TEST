@@ -4,7 +4,32 @@
 
 {% block content %} 
 
-<a href="\books">Return to pc</a>
-<h1>  This is pc number {{book_num}} </h1>
+{% comment %} <a href="\books">Return to pc</a>
+<h1>  This is pc number {{book_num}} </h1> {% endcomment %}
+{% comment %} 
+<h3>book details</h3>
+<h4>Title</h4>
+<p>{{book.title}}</p>
+<h4>Author</h4>
+<p>{{book.author}}</p> {% endcomment %}
+
+<h3>Computer Details</h3>
+{% comment %} <h4>ID</h4>
+<p>{{book.id}}</p> {% endcomment %}
+<h4>Processor</h4>
+<p>{{book.processor}}</p>
+<h4>RAM</h4>
+<p>{{book.ram}}</p>
+<h4>Storage</h4>
+<p>{{book.storage}}</p>
+<h4>Graphics Card</h4>
+<p>{{book.graphics_card}}</p>
+<h4>Motherboard</h4>
+<p>{{book.motherboard}}</p>
+<h4>Power Supply</h4>
+<p>{{book.power_supply}}</p>
+<h4>Case</h4>
+<p>{{book.case}}</p>
+
 
 {% endblock %}
