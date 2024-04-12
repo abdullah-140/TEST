@@ -37,7 +37,7 @@ def book(request, bId):
         "storage": "2TB NVMe SSD + 4TB HDD",
         "graphics": "AMD Radeon RX 6700 XT",
         "motherboard": "MSI MEG X570 Unify-X",
-        "power supply": "Seasonic Prime TX-850",
+        "power_supply": "Seasonic Prime TX-850",
         "case": "Fractal Design Meshify C ATX Mid Tower Case"
     }
 
@@ -49,7 +49,7 @@ def book(request, bId):
         "storage": "2TB NVMe SSD",
         "graphics": "NVIDIA GeForce RTX 3080",
         "motherboard": "ASUS ROG Strix Z690-E Gaming WiFi",
-        "power supply": "Corsair RM1000x",
+        "power_supply": "Corsair RM1000x",
         "case": "Lian Li O11 Dynamic XL ATX Mid Tower Case"
     }
 
@@ -61,7 +61,7 @@ def book(request, bId):
         "storage": "4TB NVMe SSD + 4TB HDD",
         "graphics": "AMD Radeon RX 6900 XT",
         "motherboard": "MSI MEG X570S Unify-X",
-        "power supply": "Seasonic Prime TX-1000",
+        "power_supply": "Seasonic Prime TX-1000",
         "case": "NZXT H710i"
     }
 
@@ -73,7 +73,7 @@ def book(request, bId):
         "storage": "4TB NVMe SSD",
         "graphics": "NVIDIA GeForce RTX 3090 Ti",
         "motherboard": "ASUS ROG Strix Z690-F Gaming WiFi",
-        "power supply": "Corsair RM1200x",
+        "power_supply": "Corsair RM1200x",
         "case": "Fractal Design Define 7 XL ATX Mid Tower Case"
     }
 
