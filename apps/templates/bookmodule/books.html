@@ -1,9 +1,47 @@
 {% extends "layouts/base.html" %}
 {% block title %} List of pc {% endblock %}
+{% block stylesheets%} 
+<style>
+    th, td {
+        border: 1px solid green; /* Setting table borders to green */
+        padding: 8px;
+        text-align: left;
+    }
+</style>
+    
+    
+    
+    {% endblock %}
 
 {% block content %} 
 
-<h1>Book List</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Processor</th>
+        <th>RAM</th>
+        <th>Storage</th>
+        <th>graphics card</th>
+        <th>Motherboard</th>
+        <th>Power Supply</th>
+        <th>Case</th>
+         </tr>
+         {% for b in pcs%}
+        <tr>
+         <td><a href="/book/{{b.id}}">{{b.id}}</a></td>
+         <td>{{b.processor}}</td>
+         <td>{{b.ram}}</td>
+         <td>{{b.storage}}</td>
+         <td>{{b.graphics_card}}</td>
+         <td>{{b.motherboard}}</td>
+         <td>{{b.power_supply}}</td>
+         <td>{{b.case}}</td>
+        </tr>
+
+         {%  endfor %}
+        </table>
+
+{% comment %} <h1>Book List</h1>
 <h3>PC 1</h3> 
 <h4>Title</h4>
 <a href="/book/1">Budget Gaming/Everyday Use PC</a>
@@ -33,7 +71,7 @@
 <h4>Title</h4>
 <a href="/book/5"> Ultimate Gaming/Professional Workstation PC</a>
 <h4>Description</h4> 
-<p>This PC combines an Intel Core i9-12900K processor and NVIDIA GeForce RTX 3090 Ti graphics card, making it an ideal choice for hardcore gamers and creators seeking the best possible performance.</p> 
+<p>This PC combines an Intel Core i9-12900K processor and NVIDIA GeForce RTX 3090 Ti graphics card, making it an ideal choice for hardcore gamers and creators seeking the best possible performance.</p>   {% endcomment %}
 
 
 
