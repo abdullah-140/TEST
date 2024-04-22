@@ -25,6 +25,7 @@ urlpatterns = [
     path('tags/', views.getTags),
     path('contactus/', views.getContactus),
     path('aboutus/', views.getAboutus),
+    path('search/', views.get_search_pcs,name="search"),
     
 ]
 

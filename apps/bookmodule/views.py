@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 
+
 # Create your views here.
 
 
@@ -8,6 +9,8 @@ def index(request):
         
         
     return render(request, 'bookmodule/index.html')
+
+
 
 
 def getBooks(request):
@@ -174,4 +177,25 @@ def __getPcslist():
         pcs.append(pc4)
         pcs.append(pc5)
         return pcs
+def get_search_pcs(request):
+    if request.method == "POST":
+        string = request.POST.get('keyword').lower()
+        isGraphics_Card = request.POST.get('option1')
+        isprocessor = request.POST.get('option2')
+        # now filter
+        pcs = __getPcslist()
+        newpcs = []
+        for item in pcs:
+            contained = False
+            if isGraphics_Card and string in item['graphics_card'].lower(): contained = True
+            if not contained and isprocessor and string in item['processor'].lower():contained = True
+            if contained: newpcs.append(item)
+        return render(request, 'bookmodule/books.html', {'pcs':newpcs})
+    return render(request , 'bookmodule/search.html')
+
+    
+    
+
+
+    
         
