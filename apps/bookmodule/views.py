@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from .forms import InputForm
 
 
 # Create your views here.
@@ -9,6 +10,10 @@ def index(request):
         
         
     return render(request, 'bookmodule/index.html')
+
+
+# Create your views here.
+
 
 
 
@@ -177,7 +182,10 @@ def __getPcslist():
         pcs.append(pc4)
         pcs.append(pc5)
         return pcs
+    
+
 def get_search_pcs(request):
+
     if request.method == "POST":
         string = request.POST.get('keyword').lower()
         isGraphics_Card = request.POST.get('option1')
@@ -192,6 +200,17 @@ def get_search_pcs(request):
             if contained: newpcs.append(item)
         return render(request, 'bookmodule/books.html', {'pcs':newpcs})
     return render(request , 'bookmodule/search.html')
+
+def add_pc(request):
+        context ={}
+        context['forms']= InputForm()
+        return render(request, 'bookmodule/addpc.html', context)
+    
+def update_pc(request):
+        context ={}
+        context['forms']= InputForm()
+        return render(request, 'bookmodule/update.html', context)
+    
 
     
     

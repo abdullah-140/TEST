@@ -1,5 +1,5 @@
 {% block content %}
-<form method="post">
+ <form method="post">
 {% csrf_token %} 
  <label>Keywords:</label>
  <input type="text" name="keyword" placeholder="enter a keyword"/>
@@ -10,5 +10,7 @@
  <br/>
  
  <button type="submit" >Search</button>
-</form>
+</form> 
+
+
 {% endblock content %}
