@@ -1,7 +1,11 @@
-from django import forms 
+from django import forms
+from .models import PCS
   
 # creating a form  
-class InputForm(forms.Form): 
+class InputForm(forms.ModelForm): 
+    class Meta:
+        model = PCS
+        fields = "__all__"
     
 
   

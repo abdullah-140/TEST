@@ -21,13 +21,13 @@ from . import views
 urlpatterns = [
     path('', views.index),
     path('books/', views.getBooks),
-    path('book/<int:bId>', views.book),
+    path('book/<int:bId>', views.book,name='book'),
     path('tags/', views.getTags),
     path('contactus/', views.getContactus),
     path('aboutus/', views.getAboutus),
     path('search/', views.get_search_pcs,name="search"),
     path('addpc/', views.add_pc),
-    path("update/", views.update_pc)
+    path("update/<int:bId>", views.update_pc)
     
 ]
 

@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
 from .forms import InputForm
+from .models import PCS
+
 
 
 # Create your views here.
@@ -202,14 +204,30 @@ def get_search_pcs(request):
     return render(request , 'bookmodule/search.html')
 
 def add_pc(request):
-        context ={}
-        context['forms']= InputForm()
-        return render(request, 'bookmodule/addpc.html', context)
     
-def update_pc(request):
-        context ={}
-        context['forms']= InputForm()
-        return render(request, 'bookmodule/update.html', context)
+    if request.method == 'POST':
+        form = InputForm(request.POST)
+        
+        if form.is_valid():
+             obj = form.save()
+             return redirect('/book/'.obj.id)
+    form = InputForm()
+    return render(request, 'bookmodule/addpc.html', {"form":form})
+
+       
+
+    
+def update_pc(request,bId):
+        
+    obj = PCS.objects.get(id = bId)
+    if request.method == 'POST':
+        form = InputForm(request.POST, instance=obj)
+        if form.is_valid():
+            obj.save()
+            return redirect('book', bId = obj.id )
+        
+    form = InputForm(instance=obj)
+    return render(request, "bookmodule/update.html", {'form':form})
     
 
     

@@ -1,9 +1,9 @@
 
 
 {% block content %}
-<form method=”POST”>
+<form method="post">
     {% csrf_token %}
-    {{forms}}
+    {{form}}
     <button type="submit">update</button>
     </form>
 
