@@ -27,7 +27,8 @@ urlpatterns = [
     path('aboutus/', views.getAboutus),
     path('search/', views.get_search_pcs,name="search"),
     path('addpc/', views.add_pc),
-    path("update/<int:bId>", views.update_pc)
+    path("update/<int:bId>", views.update_pc),
+    path('success/',views.success ,name="success"),
     
 ]
 

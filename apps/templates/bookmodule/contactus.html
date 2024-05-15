@@ -1,7 +1,7 @@
 {% extends "layouts/base_book.html" %}
 
 
-{% block content %} 
+{% comment %} {% block content %} 
 
 <div class="container">
     <form action="" method="post">
@@ -36,4 +36,14 @@
     <input type="file">
   </form>
 
-{% endblock %}
+{% endblock %} {% endcomment %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">submit</button>
+    </form>
+
+
+{% endblock content %}

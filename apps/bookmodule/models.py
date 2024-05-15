@@ -10,5 +10,8 @@ class PCS(models.Model):
  Motherboard	 = models.CharField(max_length = 50)
  Power_Supply = models.CharField(max_length = 50)
  Case = models.CharField(max_length = 50)
+ 
+ 
+ 
 
 
