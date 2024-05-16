@@ -1,5 +1,7 @@
 {% extends "layouts/base.html" %}
 {% block title %} List of pc {% endblock %}
+{% block content %}
+
 {% block stylesheets%} 
 <style>
     th, td {
@@ -12,34 +14,39 @@
     
     
     {% endblock %}
+    <form method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+    </form>
 
-{% block content %} 
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Processor</th>
+                    <th>RAM</th>
+                    <th>Storage</th>
+                    <th>graphics card</th>
+                    <th>Motherboard</th>
+                    <th>Power Supply</th>
+                    <th>Case</th>
+                     </tr>
+                     {% for b in filter.qs %}
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Processor</th>
-        <th>RAM</th>
-        <th>Storage</th>
-        <th>graphics card</th>
-        <th>Motherboard</th>
-        <th>Power Supply</th>
-        <th>Case</th>
-         </tr>
-         {% for b in pcs%}
-        <tr>
-         <td><a href="/book/{{b.id}}">{{b.id}}</a></td>
-         <td>{{b.Processor}}</td>
-         <td>{{b.Ram}}</td>
-         <td>{{b.Storage}}</td>
-         <td>{{b.graphics_card}}</td>
-         <td>{{b.Motherboard}}</td>
-         <td>{{b.Power_Supply}}</td>
-         <td>{{b.Case}}</td>
-        </tr>
-
-         {%  endfor %}
-        </table>
+                    <tr>
+                     <td><a href="/book/{{b.id}}">{{b.id}}</a></td>
+                     <td>{{b.Processor}}</td>
+                     <td>{{b.RAM}}</td>
+                     <td>{{b.Storage}}</td>
+                     <td>{{b.graphics_card}}</td>
+                     <td>{{b.Motherboard}}</td>
+                     <td>{{b.Power_Supply}}</td>
+                     <td>{{b.Case}}</td>
+                    </tr>
+            
+                     {%  endfor %}
+                    </table>
+    
+{% endblock %}
 
 {% comment %} <h1>Book List</h1>
 <h3>PC 1</h3> 
@@ -80,4 +87,3 @@
 <h1>  <a href="\books\3">pc3</a> </h1>
 <h1>  <a href="\books\4">pc4</a> </h1> {% endcomment %}
 
-{% endblock %}
