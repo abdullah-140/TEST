@@ -1,6 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        {% load static %}  
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>
@@ -10,6 +13,7 @@
         {% block stylesheets %}
         {% endblock stylesheets %}
 
+        <script src="{% static 'js/script.js' %}" defer></script>
     </head>
     <body>
         {% include 'includes/header.html' %}
@@ -22,5 +26,6 @@
         
         {% include 'includes/sidebar2.html' %}
         {% include 'includes/footer.html' %}
-    </body>
+
+        </body>
 </html>

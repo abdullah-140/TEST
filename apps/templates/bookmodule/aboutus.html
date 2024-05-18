@@ -1,24 +1,122 @@
 {% extends "layouts/base_book.html" %}
+{% load static %}
 
 
-{% block content %} 
-
-<section class="about">
-    <h1>About Us</h1>
-    <p style="font-weight: bold">
-      GeeksforGeeks is a leading platform...
-      </p>
-    <div class="about-info">
-        <div class="about-img">
-
-        </div>
-        <div>
-        <p> STORE PC is a store specializing in the sale of computers, laptops, and accessories. It was founded in [2024] out of our passion for technology and our commitment to providing the best products and services to our customers.
-        </p>
-            <button>Read More...</button>
-        </div>
-    </div>
-</section>
-
-
+{% block scripts %}
+    <script src="{% static 'fontawesomepro/js/all.min.js' %}"></script>
+</script>
 {% endblock %}
+{% block content %}
+
+
+{% block stylesheets%} 
+
+<link href="{% static 'fontawesomepro/css/all.min.css' %}" rel="stylesheet" type="text/css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5; /* Light gray background */
+        color: #333; /* Dark gray text */
+      }
+      
+
+      
+      main {
+        padding: 20px;
+      }
+      
+      footer {
+        background-color: #333; /* Dark gray footer */
+        color: #fff; /* White text */
+        padding: 20px;
+        text-align: center;
+      }
+      
+      /* About section styles */
+      .about {
+        margin-bottom: 40px;
+        padding: 20px;
+        background-color: #fff;
+      }
+      
+      .about h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+        color: #007bff; /* Blue heading */
+      }
+      
+      .about p {
+        line-height: 1.6;
+        text-align: left; 
+        margin-left: 0; 
+      }
+      
+      .about-info {
+        display: none; /* Hide the about-info div (since there's no image) */
+      }
+      
+      /* Alternate background color for every other section (optional) */
+      .about:nth-child(odd) {
+        background-color: #f0f0f0; /* Light gray background for odd sections */
+      }
+      
+
+      
+      .about-info p {
+        margin-bottom: 0;
+      }
+      
+      .about-info a {
+        display: inline-block;
+        padding: 8px 12px;
+        background-color: #007bff; /* Blue button */
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px; /* Rounded corners for the button */
+      }
+      
+      /* Alternate background color for every other section (optional) */
+      .about:nth-child(odd) {
+        background-color: #f0f0f0; /* Light gray background for odd sections */
+      }
+      
+      /* Hover effect for the button (optional) */
+      .about-info a:hover {
+        background-color: #0056b3;
+      }
+</style>
+    
+    
+    
+    {% endblock %}
+
+    <section class="about">
+        <h1>About PC Store</h1>
+        <p>PC Store is your one-stop shop for all your computer needs. We offer a wide selection of laptops, desktops, tablets, accessories, and more, at competitive prices. We are committed to providing our customers with the best possible shopping experience, from browsing our online store to visiting our brick-and-mortar locations.</p>
+      
+        <div class="about-info">
+          <div>
+            <p>We are passionate about technology and we believe that everyone should have access to the latest and greatest products. That's why we offer a wide variety of brands and models to choose from, so you can find the perfect PC for your needs.</p>
+            <a href="about-us/">Learn More...</a>
+          </div>
+        </div>
+      
+        <h2>Our Mission</h2>
+        <p>Our mission is to provide our customers with the best possible shopping experience for all their computer needs. We strive to offer a wide selection of products at competitive prices, along with exceptional customer service.</p>
+      
+        <h2>Our Team</h2>
+        <p>Our team of experienced and knowledgeable staff is here to help you find the perfect PC for your needs. We can answer your questions, provide recommendations, and help you get set up with your new computer.</p>
+      
+        <h2>Why Choose Us?</h2>
+        <ul>
+          <li>Wide selection of laptops, desktops, tablets, and accessories</li>
+          <li>Competitive prices</li>
+          <li>Exceptional customer service</li>
+          <li>Knowledgeable and friendly staff</li>
+          <li>Fast and reliable shipping</li>
+        </ul>
+      </section>
+      
+      {% endblock %}

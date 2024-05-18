@@ -1,13 +1,87 @@
 
+{% block stylesheets %}
+
+  <style>
+    /* Logo Styles */
+    img.logo {
+      width: 150px; /* Adjust width as needed */
+      height: 100px; /* Adjust height as needed */
+      margin-right: 20px; /* Space between logo and navigation bar */
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: #333; /* Dark gray background */
+      color: #fff; /* White text */
+      padding: 20px;
+      display: flex; /* Use flexbox for layout */
+      align-items: center; /* Vertically align logo and navigation */
+    }
+    
+    /* Navigation Bar Styles */
+    .navigation-bar {
+      list-style: none; /* Remove default bullet points */
+      padding: 0; /* Reset default padding */
+      margin: 0; /* Reset default margin */
+      display: flex; /* Arrange navigation items in a row */
+      justify-content: space-between; /* Distribute space between items */
+      align-items: center; /* Vertically align items in the middle */
+    }
+    
+    .navigation-bar ul {
+      margin: 0px; 
+      margin-left: 300px;
+      padding: 40px /* Reset default padding */
+      list-style: none; /* Remove default list item spacing */
+    }
+    
+    .navigation-bar li {
+      display: inline-block; /* Make navigation items inline */
+      margin: 0 10px; /* Add spacing between items */
+      padding: 0; /* Remove default list item padding */
+    }
+    
+    .navigation-bar a {
+      text-decoration: none; /* Remove default link underlines */
+      color: #fff; /* White text for navigation links */
+      padding: 5px 10px; /* Add padding to links */
+      background-color: #333; /* Dark gray background for links */
+    }
+    
+    .navigation-bar a:hover {
+      background-color: #555; /* Darker background on hover */
+    }
+    
+  </style>
+{% endblock %}
+
+
+
 {% load static %}
-<img src="{% static 'imges/free-screen-184-454914.png' %}" alt="My image">
-<ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/books">pc</a></li>
-    <li><a href="/contactus">contact us</a></li>
-    <li><a href="/aboutus">about us</a></li>
+{% block content %}
+  <header>
+    <img src="{% static 'imges/free-screen-184-454914.png' %}" alt="My image" class="logo">
 
-</ul>
+    <nav class="navigation-bar">
+
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/books">Products</a></li>
+        <li><a href="/contactus">Contact</a></li>
+        <li><a href="/aboutus">About</a></li>
+      </ul>
+    </nav>
+
+    <hr class="horizontal-line">
+  </header>
+
+  {% block page_content %}
+    {% endblock %}
+</header>
+
+{% endblock %}
 
 
-<hr>
+
+
+

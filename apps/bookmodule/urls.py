@@ -20,6 +20,7 @@ from . import views
 
 
 
+
 urlpatterns = [
     path('', views.index),
     path('books/', views.getBooks),
@@ -29,6 +30,13 @@ urlpatterns = [
     path('addpc/', views.add_pc),
     path("update/<int:bId>", views.update_pc),
     path('success/',views.success ,name="success"),
+    path('cart/', views.view_cart, name='view_cart'),
+    path('add_to_cart/<int:pc_id>/', views.add_to_cart, name='add_to_cart'),
+    path('checkout/', views.checkout, name='checkout'),
+    path('complete-purchase/', views.complete_purchase, name='complete_purchase'),
+
+]    
+
     
-]
+
 

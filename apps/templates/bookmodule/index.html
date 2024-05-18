@@ -2,14 +2,121 @@
 {% load static %}
 
 
-{% block title %}  {% endblock %}
+{% block title %}PC Store: Your One-Stop Shop for All Things Tech{% endblock %}
 
-{% block content %} 
+{% block stylesheets%} 
+<style>
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5; /* Light gray background */
+        color: #333; /* Dark gray text */
+      }
+
+    .hero {
+        background-color: #f5f5f5;
+        padding: 50px 0;
+        text-align: center; /* Center the content within the hero section */
+      }
+      
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto; /* Center the hero content horizontally */
+      }
+      
+      .btn {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      
+      /* Featured Products Section Styles */
+      .featured-products {
+        padding: 30px 0;
+        text-align: center;
+      }
+      
+      .product-grid {
+        display: flex; /* Remove flex-wrap and justify-content */
+        flex-direction: column; /* Stack products vertically */
+        align-items: center; /* Center products horizontally within the grid */
+        margin: 0 auto; /* Center the grid horizontally on the page */
+      }
+      
+      .product {
+        width: 600px; 
+        margin: 20px 0; 
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        text-align: center;
+      }
+      
+      .product img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      
+      /* About Us Section Styles */
+      .about-us {
+        padding: 30px 0;
+        text-align: center;
+      }
+</style>
 
 
+  {% endblock %}
 
 
+{% block content %}
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to PC Store</h1>
+      <p>Your premier destination for high-quality computers, components, and accessories.</p>
+      <a href="/books" class="btn">Shop Now</a>
+    </div>
+  </section>
+
+  <section class="featured-products">
+    <h2>Featured Products</h2>
+
+    <div class="product-grid">
+      <div class="product">
+        <img src="{% static 'imges/img.jpg' %}" alt="My image" class="logo">
+
+        <h3>Gaming PC</h3>
+        <p>Experience the ultimate gaming performance with our top-of-the-line gaming PCs.</p>
+      </div>
+
+      <div class="product">
+        <img src="{% static 'imges/images.jpg' %}" alt="My image" class="logo">
 
 
-<h1> Hello to pc store </h1>
+        <h3>Laptop</h3>
+        <p>Stay productive and entertained on the go with our versatile laptops.</p>
+      </div>
+
+      <div class="product">
+
+        <h3>Monitor</h3>
+        <p>Elevate your visual experience with our stunning monitors.</p>
+        <img src="{% static 'imges/monter.jpg' %}" alt="My image" class="logo">
+
+      </div>
+    </div>
+  </section>
+
+  <section class="about-us">
+    <h2>About PC Store</h2>
+
+    <p>At PC Store, we are passionate about providing our customers with the best possible technology solutions. We carefully curate our product selection to ensure that we offer only the highest-quality components and devices. Our team of experts is always here to assist you in finding the perfect tech gear for your needs.</p>
+
+    <a href="aboutus/" class="btn">Read More</a>
+  </section>
 {% endblock %}

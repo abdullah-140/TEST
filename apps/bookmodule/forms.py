@@ -9,12 +9,14 @@ class InputForm(forms.ModelForm):
         fields = "__all__"
     
     Processor = forms.CharField(max_length = 200) 
+    name = forms.CharField(max_length = 50)
     RAM = forms.CharField(max_length = 200) 
     Storage = forms.CharField(max_length = 200) 
     graphics_card = forms.CharField(max_length = 200) 
     Motherboard = forms.CharField(max_length = 200) 
     Power_Supply  = forms.CharField(max_length = 200) 
     Case = forms.CharField(max_length = 200) 
+    price = forms.FloatField(min_value=0, max_value=10000)
     
 class ContactForm(forms.Form):
     name = forms.CharField(max_length =100)

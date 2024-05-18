@@ -1,0 +1,95 @@
+{% extends "layouts/base_book.html" %}
+{% block title %}Cart{% endblock %}
+{% block content %}
+
+
+{% block stylesheets%} 
+
+<style>
+
+
+table {
+  border-collapse: collapse; 
+  width: 100%; 
+}
+
+/* Style table headers (<th> elements) */
+th {
+  background-color: #ddd; 
+  padding: 10px; 
+  text-align: left; 
+  border: 1px solid #ccc; 
+}
+
+/* Style table body rows (<tr> elements) */
+tr {
+  border-bottom: 1px solid #ccc; 
+}
+
+/* Style table cells (<td> elements) */
+td {
+  padding: 10px; 
+}
+
+.total-price {
+  margin-top: 20px; 
+  font-weight: bold; 
+}
+
+.total-price {
+  margin-top: 20px; 
+  text-align: right; 
+  font-weight: bold;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px; 
+  background-color: #007bff; 
+  color: #fff; 
+  text-decoration: none; 
+  border: none; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+  
+}
+
+.btn:hover { 
+  background-color: #0056b3; 
+}
+
+{% endblock%} 
+</style>
+
+
+<h2>Your Cart</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Processor</th>
+    <th>RAM</th>
+    <th>Storage</th>
+    <th>Graphics Card</th>
+    <th>Motherboard</th>
+    <th>Power Supply</th>
+    <th>Case</th>
+    <th>Price</th>
+  </tr>
+  {% for pc in pcs %}
+  <tr>
+    <td>{{ pc.id }}</td>
+    <td>{{ pc.Processor }}</td>
+    <td>{{ pc.RAM }}</td>
+    <td>{{ pc.Storage }}</td>
+    <td>{{ pc.graphics_card }}</td>
+    <td>{{ pc.Motherboard }}</td>
+    <td>{{ pc.Power_Supply }}</td>
+    <td>{{ pc.Case }}</td>
+    <td>{{ pc.price }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<h3>Total Price: {{ total_price }}</h3>
+<a href="{% url 'checkout' %}" class="btn">Proceed to Checkout</a>
+
+{% endblock %}

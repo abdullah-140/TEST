@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'apps.bookmodule',
+    'fontawesomefree',
+    
     
     
     
@@ -124,15 +126,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-# Base url to serve media files
-MEDIA_URL = '/media/'
+STATICFILES_DIRS = [BASE_DIR/'static']
 
-# Path where media is stored'
-MEDIA_ROOT = BASE_DIR / 'media'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    
-]
+
+MEDIA_URL = "image/"
+MEDIA_ROOT = BASE_DIR/"media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -1,89 +1,65 @@
-{% extends "layouts/base.html" %}
-{% block title %} List of pc {% endblock %}
+{% extends "layouts/base_book.html" %}
+{% block title %} List of PCs {% endblock %}
 {% block content %}
 
-{% block stylesheets%} 
+{% block stylesheets%}
 <style>
-    th, td {
-        border: 1px solid green; /* Setting table borders to green */
-        padding: 8px;
-        text-align: left;
-    }
+  table {
+    width: 100%; 
+    border-collapse: collapse; 
+  }
+  th, td {
+    border: 1px solid #ddd; 
+    padding: 8px; 
+    text-align: left; 
+  }
+  th {
+    background-color: #f2f2f2; 
+  }
+  tr:nth-child(even) { 
+    background-color: #fafafa;
+  }
 </style>
-    
-    
-    
-    {% endblock %}
-    <form method="get">
-        {{ filter.form.as_p }}
-        <input type="submit" />
-    </form>
-
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Processor</th>
-                    <th>RAM</th>
-                    <th>Storage</th>
-                    <th>graphics card</th>
-                    <th>Motherboard</th>
-                    <th>Power Supply</th>
-                    <th>Case</th>
-                     </tr>
-                     {% for b in filter.qs %}
-
-                    <tr>
-                     <td><a href="/book/{{b.id}}">{{b.id}}</a></td>
-                     <td>{{b.Processor}}</td>
-                     <td>{{b.RAM}}</td>
-                     <td>{{b.Storage}}</td>
-                     <td>{{b.graphics_card}}</td>
-                     <td>{{b.Motherboard}}</td>
-                     <td>{{b.Power_Supply}}</td>
-                     <td>{{b.Case}}</td>
-                    </tr>
-            
-                     {%  endfor %}
-                    </table>
-    
 {% endblock %}
-
-{% comment %} <h1>Book List</h1>
-<h3>PC 1</h3> 
-<h4>Title</h4>
-<a href="/book/1">Budget Gaming/Everyday Use PC</a>
-
-<h4>Description</h4>
-<p>This PC combines an Intel Core i5-12600K processor and NVIDIA GeForce RTX 3060 graphics card to deliver excellent performance for gaming and everyday tasks like web browsing and productivity work.</p>
-</br> 
-<h3>PC 2</h3>
-<h4>Title</h4>
-<a href="/book/2">Balanced Gaming/Content Creation PC</a>
-<h4>Description</h4> 
-<p>This PC offers a combination of an AMD Ryzen 7 5800X processor and AMD Radeon RX 6700 XT graphics card, making it suitable for playing modern games and creating content.</p> 
-
-<h3>PC 3</h3> 
-<h4>Title</h4>
-<a href="/book/3">High-End Gaming PC</a>
-
-<h4>Description</h4>
-<p>This PC features an Intel Core i7-12700K processor and NVIDIA GeForce RTX 3080 graphics card, making it ideal for playing modern games at high settings and 4K resolution.</p>
-</br> 
-<h3>PC 4</h3>
-<h4>Title</h4>
-<a href="/book/4"> Professional Gaming/Content Creation PC</a>
-<h4>Description</h4> 
-<p>This PC boasts an AMD Ryzen 9 5950X processor and AMD Radeon RX 6900 XT graphics card, making it suitable for professional gamers and creators who need exceptional performance.</p> 
-<h3>PC 5</h3>
-<h4>Title</h4>
-<a href="/book/5"> Ultimate Gaming/Professional Workstation PC</a>
-<h4>Description</h4> 
-<p>This PC combines an Intel Core i9-12900K processor and NVIDIA GeForce RTX 3090 Ti graphics card, making it an ideal choice for hardcore gamers and creators seeking the best possible performance.</p>   {% endcomment %}
-
-
-
-{% comment %} <h1>  <a href="\books\1">pc1</a> </h1>
-<h1>  <a href="\books\2">pc2</a> </h1>
-<h1>  <a href="\books\3">pc3</a> </h1>
-<h1>  <a href="\books\4">pc4</a> </h1> {% endcomment %}
-
+<form method="get">
+    {{ filter.form.as_p }}
+    <input type="submit" />
+</form>
+<div class="productContainer">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Processor</th>
+      <th>RAM</th>
+      <th>Storage</th>
+      <th>Graphics Card</th>
+      <th>Motherboard</th>
+      <th>Power Supply</th>
+      <th>Case</th>
+      <th>Price</th>
+      <th>Update</th>
+      <th>Add to Cart</th>
+    </tr>
+    {% for b in filter.qs %}
+      <tr>
+        <td><a href="/book/{{b.id}}">{{b.id}}</a></td>
+        <td>{{b.Processor}}</td>
+        <td>{{b.RAM}}</td>
+        <td>{{b.Storage}}</td>
+        <td>{{b.graphics_card}}</td>
+        <td>{{b.Motherboard}}</td>
+        <td>{{b.Power_Supply}}</td>
+        <td>{{b.Case}}</td>
+        <td>{{b.price}}</td>
+        <td><a href="/update/{{b.id}}">Update</a></td>
+        <td>
+          <form method="post" action="{% url 'add_to_cart' b.id %}">
+            {% csrf_token %}
+            <button type="submit">Add to Cart</button>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

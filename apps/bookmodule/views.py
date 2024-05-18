@@ -1,7 +1,10 @@
-from django.shortcuts import render,redirect,HttpResponse
+from django.shortcuts import render,redirect,HttpResponse,get_object_or_404
+from django.contrib.sessions.models import Session
 from .forms import InputForm,ContactForm
-from .models import PCS
+from .models import PCS 
 from .filters import PCSfilters
+
+
 
 
 
@@ -89,6 +92,51 @@ def update_pc(request,bId):
         
     form = InputForm(instance=obj)
     return render(request, "bookmodule/update.html", {'form':form})
+
+
+
+def view_cart(request):
+    cart = request.session.get('cart', [])
+    pcs = PCS.objects.filter(id__in=cart)
+    total_price = sum(pc.price for pc in pcs)
+    return render(request, 'bookmodule/cart.html', {'pcs': pcs, 'total_price': total_price})
+
+def add_to_cart(request, pc_id):
+    pc = get_object_or_404(PCS, id=pc_id)
+    cart = request.session.get('cart', [])
+
+    if pc_id not in cart:
+        cart.append(pc_id)
+        request.session['cart'] = cart
+
+    return redirect('view_cart')
+
+
+
+def checkout(request):
+    cart = request.session.get('cart', [])
+    pcs = PCS.objects.filter(id__in=cart)
+    total_price = sum(pc.price for pc in pcs)
+
+
+    request.session['cart'] = []  
+
+    return render(request, 'bookmodule/checkout.html', {'pcs': pcs, 'total_price': total_price})
+
+
+def complete_purchase(request):
+    if request.method == 'POST':
+        # هنا يمكنك إضافة منطق معالجة الشراء، مثل إنشاء طلب وإفراغ السلة
+        # افترض أنك قد أكملت الدفع بنجاح
+        return redirect("success")  # استبدل success_page بمسار صفحة النجاح الخاصة بك
+    return redirect('checkout')
+
+
+
+
+
+
+
     
 
     
